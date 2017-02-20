@@ -18,7 +18,7 @@ cpdef transf_value (double[:] data, double value):
     N = data.shape[0]
     values = np.zeros(N, dtype=np.float64)
 
-    for i in prange(N,nogil=True, schedule='static', chunksize=1):
+    for i in prange(N, nogil=True):
         values[i] = data[i] * value
     return np.asarray(values)
 
